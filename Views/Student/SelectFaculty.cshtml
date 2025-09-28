@@ -1,0 +1,90 @@
+@{
+    ViewData["Title"] = "Select Faculty Mentor";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Mentor</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
+        .header { background: rgba(255, 255, 255, 0.95); padding: 20px; text-align: center; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); }
+        .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
+        .faculty-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .faculty-card { background: rgba(255, 255, 255, 0.95); padding: 25px; border-radius: 15px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease; }
+        .faculty-card:hover { transform: translateY(-5px); }
+        .faculty-name { color: #333; font-size: 1.3rem; font-weight: 600; margin-bottom: 10px; }
+        .faculty-dept { color: #666; font-size: 1rem; margin-bottom: 8px; }
+        .faculty-email { color: #2196F3; font-size: 0.9rem; margin-bottom: 15px; }
+        .select-btn { width: 100%; padding: 12px; background: linear-gradient(45deg, #4CAF50, #45a049); color: white; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer; transition: all 0.3s ease; }
+        .select-btn:hover { background: linear-gradient(45deg, #45a049, #3d8b40); transform: translateY(-2px); }
+        .back-btn { display: inline-block; margin: 20px auto; padding: 12px 20px; background: linear-gradient(45deg, #2196F3, #1976D2); color: white; text-decoration: none; border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>👩‍🏫 Select Your Faculty Mentor</h1>
+        <p>Choose from our experienced faculty members</p>
+    </div>
+
+    <div class="container">
+        <form method="post" action="@Url.Action("SelectFaculty", "Student")">
+            <div class="faculty-grid">
+                <div class="faculty-card">
+                    <div class="faculty-name">Dr. Sarah Johnson</div>
+                    <div class="faculty-dept">Computer Science Department</div>
+                    <div class="faculty-email">sarah.johnson@college.edu</div>
+                    <div class="faculty-specialization">Specialization: AI/ML, Data Science</div>
+                    <button type="submit" name="selectedFaculty" value="1" class="select-btn">✓ Select Dr. Johnson</button>
+                </div>
+                
+                <div class="faculty-card">
+                    <div class="faculty-name">Dr. Michael Chen</div>
+                    <div class="faculty-dept">Software Engineering</div>
+                    <div class="faculty-email">michael.chen@college.edu</div>
+                    <div class="faculty-specialization">Specialization: Web Development, Cloud Computing</div>
+                    <button type="submit" name="selectedFaculty" value="2" class="select-btn">✓ Select Dr. Chen</button>
+                </div>
+                
+                <div class="faculty-card">
+                    <div class="faculty-name">Dr. Emily Rodriguez</div>
+                    <div class="faculty-dept">Information Systems</div>
+                    <div class="faculty-email">emily.rodriguez@college.edu</div>
+                    <div class="faculty-specialization">Specialization: Database Systems, Analytics</div>
+                    <button type="submit" name="selectedFaculty" value="3" class="select-btn">✓ Select Dr. Rodriguez</button>
+                </div>
+                
+                <div class="faculty-card">
+                    <div class="faculty-name">Dr. Robert Kumar</div>
+                    <div class="faculty-dept">Cybersecurity</div>
+                    <div class="faculty-email">robert.kumar@college.edu</div>
+                    <div class="faculty-specialization">Specialization: Network Security, Ethical Hacking</div>
+                    <button type="submit" name="selectedFaculty" value="4" class="select-btn">✓ Select Dr. Kumar</button>
+                </div>
+                
+                <div class="faculty-card">
+                    <div class="faculty-name">Dr. Lisa Thompson</div>
+                    <div class="faculty-dept">Human-Computer Interaction</div>
+                    <div class="faculty-email">lisa.thompson@college.edu</div>
+                    <div class="faculty-specialization">Specialization: UX/UI Design, Mobile Development</div>
+                    <button type="submit" name="selectedFaculty" value="5" class="select-btn">✓ Select Dr. Thompson</button>
+                </div>
+                
+                <div class="faculty-card">
+                    <div class="faculty-name">Dr. James Wilson</div>
+                    <div class="faculty-dept">Systems Architecture</div>
+                    <div class="faculty-email">james.wilson@college.edu</div>
+                    <div class="faculty-specialization">Specialization: Distributed Systems, DevOps</div>
+                    <button type="submit" name="selectedFaculty" value="6" class="select-btn">✓ Select Dr. Wilson</button>
+                </div>
+            </div>
+        </form>
+        
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="@Url.Action("Dashboard", "Student")" class="back-btn">← Back to Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>
